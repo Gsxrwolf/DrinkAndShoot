@@ -117,12 +117,24 @@ namespace Weapons
 
             yield return new WaitForSeconds(m_reloadTime);
 
-            int newClipSize = m_maxClipSize >= CurrentAmmo ? m_maxClipSize : CurrentAmmo;
+            int newClipSize = CurrentAmmo >= m_maxClipSize ? m_maxClipSize : CurrentAmmo;
 
             CurrentClipSize = newClipSize;
             CurrentAmmo -= newClipSize;
 
             ReloadFinished();
+        }
+
+        public override void FullRestore()
+        {
+            CurrentAmmo = m_maxAmmo;
+            CurrentClipSize = m_maxClipSize;
+        }
+
+        private void OnGUI()
+        {
+            GUILayout.Label("Ammo: " + CurrentAmmo);
+            GUILayout.Label("Clip: " + CurrentClipSize);
         }
     }
 }
