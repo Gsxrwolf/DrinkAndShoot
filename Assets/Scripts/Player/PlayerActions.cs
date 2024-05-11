@@ -20,15 +20,27 @@ namespace Player
             }
         }
 
+        public ABaseWeapon CurrentWeapon => m_currentWeapon;
+
         private event System.Action<ABaseWeapon, ABaseWeapon> m_onWeaponChanged;
 
         private Transform m_rightWeaponSocket = null;
         private ABaseWeapon m_currentWeapon = null;
 
+        private bool m_isShooting = false;
+
         private void Awake()
         {
             Cursor.lockState = CursorLockMode.Locked;
             m_rightWeaponSocket = GameObject.FindGameObjectWithTag("RightWeaponSocket").transform;
+        }
+
+        private void Update()
+        {
+            if (m_isShooting && m_currentWeapon != null)
+            {
+                m_currentWeapon.StartPrimaryAction();
+            }
         }
 
         public void EquipWeapon(ABaseWeapon _weapon)
@@ -62,10 +74,13 @@ namespace Player
 
         public void OnFire(InputAction.CallbackContext _context)
         {
-            if (_context.started && m_currentWeapon != null)
+            if (_context.started)
             {
-                Debug.Log("Starting");
-                m_currentWeapon.StartAction();
+                m_isShooting = true;
+            }
+            if (_context.canceled)
+            {
+                m_isShooting = false;
             }
         }
 
@@ -73,7 +88,7 @@ namespace Player
         {
             if (_context.started && m_currentWeapon != null)
             {
-                m_currentWeapon.StartReload();
+                m_currentWeapon.StartSecondaryAction();
             }
         }
     }
