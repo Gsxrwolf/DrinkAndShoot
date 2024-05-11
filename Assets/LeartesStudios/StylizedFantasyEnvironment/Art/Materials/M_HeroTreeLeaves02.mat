@@ -15,27 +15,34 @@ MonoBehaviour:
   version: 11
 --- !u!21 &2100000
 Material:
-  serializedVersion: 6
+  serializedVersion: 8
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: M_HeroTreeLeaves02
-  m_Shader: {fileID: -6465566751694194690, guid: f6ad2cb48ccb5eb49b04cc2edd66fbb2, type: 3}
-  m_ShaderKeywords: _DISABLE_SSR_TRANSPARENT _ENABLE_FOG_ON_TRANSPARENT _SURFACE_TYPE_TRANSPARENT
+  m_Shader: {fileID: -6465566751694194690, guid: f6ad2cb48ccb5eb49b04cc2edd66fbb2,
+    type: 3}
+  m_Parent: {fileID: 0}
+  m_ModifiedSerializedProperties: 0
+  m_ValidKeywords: []
+  m_InvalidKeywords:
+  - _DISABLE_SSR_TRANSPARENT
+  - _ENABLE_FOG_ON_TRANSPARENT
+  - _SURFACE_TYPE_TRANSPARENT
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
   m_CustomRenderQueue: 3000
   stringTagMap:
     MotionVector: User
-    RenderType: Transparent
   disabledShaderPasses:
   - TransparentDepthPrepass
   - TransparentDepthPostpass
   - TransparentBackface
   - RayTracingPrepass
   - MOTIONVECTORS
+  m_LockedProperties: 
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
@@ -163,6 +170,10 @@ Material:
         m_Texture: {fileID: 2800000, guid: 139d39f2c33bcbd49b24ce01a8f579f0, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - _SampleTexture2D_a62fbba35c1744698eed05904c573d87_Texture_1_Texture2D:
+        m_Texture: {fileID: 2800000, guid: 139d39f2c33bcbd49b24ce01a8f579f0, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _SpecularColorMap:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
@@ -199,6 +210,7 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    m_Ints: []
     m_Floats:
     - Boolean_277e787ada1c4697907d360d87139b2e: 1
     - Boolean_45d01aaa754144d78eabc90c7050ee1e: 0
@@ -217,6 +229,7 @@ Material:
     - Vector1_3d93f9a0aa3c4be2ba3dec68934e9a7e: 1
     - Vector1_434dbec5668f4b5a8f898305702320fc: 3.82
     - Vector1_4B28F8D1: 1
+    - Vector1_711b98f32bba4c3ebee4cbdf118a4740: 0.05
     - Vector1_73a92087001046ea9b533568e682cded: 3.85
     - Vector1_73ca9c53858e474d9dd190c539f7f102: 2.36
     - Vector1_89405a4492944a21ab172c4ac50b6b14: 1
@@ -226,10 +239,13 @@ Material:
     - Vector1_ED619312: 0.5
     - Vector1_a08646eebd304fa3bf572986acfc4406: 1
     - Vector1_a385c10908ec4a66ac43f9725d903ba7: 1
+    - Vector1_ca47c8ffb70144529389cc0f27e6d457: 0
+    - Vector1_d3646538c59e446398d2a740c130bfc0: 5
     - Vector1_df308df77fb1465d88917f755a5df14a: 1
     - Vector1_eb681cc57c3e46829a9e2c40614de15c: 1.2
     - Vector1_eed1c06dc017411fbfc5b918c8207a51: 0
     - Vector1_f199065f0f8b437e87fe45c011048e10: 0
+    - Vector1_fd449ac4730b489194d75cf098fa649d: 1
     - _AORemapMax: 1
     - _AORemapMin: 0
     - _ATDistance: 1
@@ -296,6 +312,8 @@ Material:
     - _PPDMinSamples: 5
     - _PPDPrimitiveLength: 1
     - _PPDPrimitiveWidth: 1
+    - _QueueControl: 1
+    - _QueueOffset: 0
     - _RayTracing: 0
     - _ReceivesSSR: 1
     - _ReceivesSSRTransparent: 0
@@ -347,7 +365,8 @@ Material:
     - Color_AF14EE56: {r: 1, g: 1, b: 1, a: 0}
     - Color_af892e36b16742d1b5a31e2fb9c43b3d: {r: 0, g: 0.6332358, b: 1, a: 1}
     - Color_eedc3b7040d34ae98ea87f074e29aaea: {r: 1, g: 1, b: 1, a: 0}
-    - Color_f6973748622e48d389fed870a51f8d37: {r: 0.03301889, g: 0.5105501, b: 1, a: 0}
+    - Color_f6973748622e48d389fed870a51f8d37: {r: 0.03301889, g: 0.5105501, b: 1,
+        a: 0}
     - Vector4_e1bb7d5a49e84e138bfebc30a9357222: {r: 1, g: 1, b: 0, a: 0}
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
     - _BaseColorMap_MipInfo: {r: 0, g: 0, b: 0, a: 0}
@@ -366,3 +385,17 @@ Material:
     - _UVMappingMask: {r: 1, g: 0, b: 0, a: 0}
     - _UVMappingMaskEmissive: {r: 1, g: 0, b: 0, a: 0}
   m_BuildTextureStacks: []
+  m_AllowLocking: 1
+--- !u!114 &7607959621201106769
+MonoBehaviour:
+  m_ObjectHideFlags: 11
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0353a89b1f911e48b9e16bdc9f2e058, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  version: 9

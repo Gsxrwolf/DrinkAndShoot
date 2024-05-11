@@ -15,14 +15,20 @@ MonoBehaviour:
   version: 11
 --- !u!21 &2100000
 Material:
-  serializedVersion: 6
+  serializedVersion: 8
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: M_Sky
-  m_Shader: {fileID: -6465566751694194690, guid: 0895e2e8c2d749c4fa5cb0f0f37f8256, type: 3}
-  m_ShaderKeywords: _DISABLE_SSR_TRANSPARENT _DOUBLESIDED_ON
+  m_Shader: {fileID: -6465566751694194690, guid: 0895e2e8c2d749c4fa5cb0f0f37f8256,
+    type: 3}
+  m_Parent: {fileID: 0}
+  m_ModifiedSerializedProperties: 0
+  m_ValidKeywords: []
+  m_InvalidKeywords:
+  - _DISABLE_SSR_TRANSPARENT
+  - _DOUBLESIDED_ON
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 1
@@ -35,6 +41,7 @@ Material:
   - TransparentBackface
   - RayTracingPrepass
   - MOTIONVECTORS
+  m_LockedProperties: 
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
@@ -182,6 +189,7 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    m_Ints: []
     m_Floats:
     - Boolean_45d01aaa754144d78eabc90c7050ee1e: 0
     - Boolean_783DA2B0: 0
@@ -280,6 +288,8 @@ Material:
     - _PPDMinSamples: 5
     - _PPDPrimitiveLength: 1
     - _PPDPrimitiveWidth: 1
+    - _QueueControl: 1
+    - _QueueOffset: 0
     - _RayTracing: 0
     - _ReceivesSSR: 1
     - _ReceivesSSRTransparent: 0
@@ -327,18 +337,25 @@ Material:
     - _ZTestTransparent: 4
     - _ZWrite: 1
     m_Colors:
-    - Color_0686456e3a8a411ea231d83e380c66ea: {r: 1, g: 0.7058824, b: 0.34901962, a: 1}
+    - Color_0686456e3a8a411ea231d83e380c66ea: {r: 1, g: 0.7058824, b: 0.34901962,
+        a: 1}
     - Color_0d8c36c1e2bc4628bfb69ea9097069e3: {r: 1, g: 0.8117648, b: 0.5294118, a: 1}
-    - Color_17afe9f5efdc40549e8099b8525c6865: {r: 0.76470596, g: 0.6666667, b: 0.3019608, a: 1}
-    - Color_21d83e5f24ca48df8ae017ff0570d038: {r: 0.7735849, g: 0.726959, b: 0.6896582, a: 1}
-    - Color_93d2ff75005e461ea99158c258e1b672: {r: 0.9960785, g: 0.9960785, b: 0.78823537, a: 1}
+    - Color_17afe9f5efdc40549e8099b8525c6865: {r: 0.76470596, g: 0.6666667, b: 0.3019608,
+        a: 1}
+    - Color_21d83e5f24ca48df8ae017ff0570d038: {r: 0.7735849, g: 0.726959, b: 0.6896582,
+        a: 1}
+    - Color_93d2ff75005e461ea99158c258e1b672: {r: 0.9960785, g: 0.9960785, b: 0.78823537,
+        a: 1}
     - Color_A7DF1144: {r: 0, g: 0, b: 0, a: 0}
     - Color_AF14EE56: {r: 1, g: 1, b: 1, a: 0}
     - Color_df03d38e36754dd4a3cf094e5632cc00: {r: 1, g: 0.9630503, b: 0.7783019, a: 0}
-    - Color_ef1fb35d0eda411cbb133a29e8bee0e6: {r: 0.9150943, g: 0.688972, b: 0.35826805, a: 0}
-    - Color_f6973748622e48d389fed870a51f8d37: {r: 0.03301889, g: 0.5105501, b: 1, a: 0}
+    - Color_ef1fb35d0eda411cbb133a29e8bee0e6: {r: 0.9150943, g: 0.688972, b: 0.35826805,
+        a: 0}
+    - Color_f6973748622e48d389fed870a51f8d37: {r: 0.03301889, g: 0.5105501, b: 1,
+        a: 0}
     - Vector3_ad08b5ae555c49b3b522a2bd313e9592: {r: 0, g: 0, b: -1, a: 0}
-    - Vector4_06b91ee9781346c1a35a1e133910e449: {r: 0.084761, g: 0.952756, b: -0.29167, a: 1}
+    - Vector4_06b91ee9781346c1a35a1e133910e449: {r: 0.084761, g: 0.952756, b: -0.29167,
+        a: 1}
     - Vector4_13b30d1136f545d4b5f64d72b6a4ca49: {r: 0.717, g: 0.782, b: 0.885, a: 0}
     - Vector4_390fe569ccc647338391c043c21e3169: {r: 1, g: 0.8, b: 0.4, a: 1}
     - Vector4_97665dc5e05d4aaaa9494c88e360972b: {r: 1, g: 1, b: 1, a: 1}
@@ -361,3 +378,17 @@ Material:
     - _UVMappingMask: {r: 1, g: 0, b: 0, a: 0}
     - _UVMappingMaskEmissive: {r: 1, g: 0, b: 0, a: 0}
   m_BuildTextureStacks: []
+  m_AllowLocking: 1
+--- !u!114 &7550069876105969175
+MonoBehaviour:
+  m_ObjectHideFlags: 11
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0353a89b1f911e48b9e16bdc9f2e058, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  version: 9
