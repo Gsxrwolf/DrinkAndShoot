@@ -10,6 +10,8 @@ namespace Weapons.Projectiles
         private float m_movementSpeed = 20;
         [SerializeField]
         private float m_timeToKill = 10;
+        [SerializeField]
+        private int m_damage = 5;
 
         private Rigidbody m_rigidbody = null;
         
@@ -26,6 +28,11 @@ namespace Weapons.Projectiles
 
         private void OnTriggerEnter(Collider _other)
         {
+            AIBehavior enemy = _other.GetComponent<AIBehavior>();
+            if (enemy != null)
+            {
+                enemy.DealDamage(m_damage);
+            }
             Destroy(this.gameObject);
         }
     }
