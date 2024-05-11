@@ -6,18 +6,17 @@ using UnityEngine.InputSystem.Processors;
 public class AIBehavior : MonoBehaviour
 {
     [SerializeField] GameObject player;
-    [SerializeField] float attackRange;
-    [SerializeField] float sprintRange;
-    [SerializeField] int damage;
-    [SerializeField] float health;
-    [SerializeField] float distance;
-
-    [SerializeField] bool isDead;
-
     Animator animator;
     NavMeshAgent agent;
 
-    public event Action<int> damagePlayer;
+    [SerializeField] float attackRange;
+    [SerializeField] float sprintRange;
+    float distance;
+
+    [SerializeField] int damage;
+    [SerializeField] float health;
+
+    [SerializeField] bool isDead;
 
     // Start is called before the first frame update
     void Start()
@@ -59,11 +58,11 @@ public class AIBehavior : MonoBehaviour
     {
         if (distance < attackRange)
         {
-            damagePlayer?.Invoke(damage);
+            player.GetComponent<Health>().AddHealth(-damage);
         }
         else
         {
-            animator.ResetTrigger("Attak");
+            animator.ResetTrigger("Attack");
             agent.isStopped = false;
         }
     }
