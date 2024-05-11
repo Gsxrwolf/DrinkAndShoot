@@ -1,0 +1,159 @@
+fileFormatVersion: 2
+guid: abc00000000009219778824624855847
+ModelImporter:
+  serializedVersion: 20200
+  internalIDToNameTable:
+  - first:
+      1: 100000
+    second: SM_Rock_01_LOD1
+  - first:
+      1: 100002
+    second: //RootNode
+  - first:
+      4: 400000
+    second: SM_Rock_01_LOD1
+  - first:
+      4: 400002
+    second: //RootNode
+  - first:
+      23: 2300000
+    second: SM_Rock_01_LOD1
+  - first:
+      33: 3300000
+    second: SM_Rock_01_LOD1
+  - first:
+      43: 4300000
+    second: SM_Rock_01_LOD1
+  externalObjects: {}
+  materials:
+    materialImportMode: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 0
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    useSRGBMaterialColor: 1
+    sortHierarchyByName: 1
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    fileIdsGeneration: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 1
+    useFileUnits: 1
+    keepQuads: 0
+    weldVertices: 0
+    bakeAxisConversion: 0
+    preserveHierarchy: 0
+    skinWeightsMode: 0
+    maxBonesPerVertex: 4
+    minBoneWeight: 0.001
+    meshOptimizationFlags: 1
+    indexFormat: 2
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15
+    secondaryUVHardAngle: 88
+    secondaryUVMarginMethod: 1
+    secondaryUVMinLightmapResolution: 40
+    secondaryUVMinObjectScale: 1
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 0
+    normalCalculationMode: 4
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 1
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  referencedClips:
+  - abc00000000008460097943487012821
+  - abc00000000001905325128760622138
+  - abc00000000010121322360448784973
+  - abc00000000011557627920021089715
+  - abc00000000016350050924855167274
+  - abc00000000008128900874185789385
+  - abc00000000000881278884754427478
+  - abc00000000013296207373157307965
+  - abc00000000016914683640570848743
+  - abc00000000005262117261526437089
+  - abc00000000003397136050928781299
+  - abc00000000013727783472538747677
+  - abc00000000001761491196394815904
+  - abc00000000014453875399979236061
+  - abc00000000015805778755763201694
+  - abc00000000018009862185508627194
+  - abc00000000001201239281194667323
+  - abc00000000004938290954837724175
+  - abc00000000013356034619250886692
+  - abc00000000008821802378532227851
+  - abc00000000011261072511100938332
+  - abc00000000007903988500259075378
+  - abc00000000007178661905881886683
+  - abc00000000003889778484618666328
+  - abc00000000011561848184894594679
+  - abc00000000007904074060579618732
+  - abc00000000005960153595789468550
+  - abc00000000003474195605537925504
+  - abc00000000001348946833348594386
+  - abc00000000008307229501793812172
+  - abc00000000000322704405502248577
+  - abc00000000002538527322302922540
+  - abc00000000009427681804905855887
+  - abc00000000015361530498104246939
+  - abc00000000017769334059937868250
+  - abc00000000000553105351323609294
+  importAnimation: 1
+  humanDescription:
+    serializedVersion: 3
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    globalScale: 1
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  autoGenerateAvatarMappingIfUnspecified: 1
+  animationType: 0
+  humanoidOversampling: 1
+  avatarSetup: 0
+  addHumanoidExtraRootOnlyWhenUsingAvatar: 0
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

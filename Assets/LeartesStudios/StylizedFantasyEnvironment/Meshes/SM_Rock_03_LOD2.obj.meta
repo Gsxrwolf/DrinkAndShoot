@@ -1,0 +1,175 @@
+fileFormatVersion: 2
+guid: abc00000000005061477565556751646
+ModelImporter:
+  serializedVersion: 20200
+  internalIDToNameTable:
+  - first:
+      1: 100000
+    second: SM_Rock_03_LOD2
+  - first:
+      1: 100002
+    second: //RootNode
+  - first:
+      4: 400000
+    second: SM_Rock_03_LOD2
+  - first:
+      4: 400002
+    second: //RootNode
+  - first:
+      23: 2300000
+    second: SM_Rock_03_LOD2
+  - first:
+      33: 3300000
+    second: SM_Rock_03_LOD2
+  - first:
+      43: 4300000
+    second: SM_Rock_03_LOD2
+  externalObjects: {}
+  materials:
+    materialImportMode: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 0
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    useSRGBMaterialColor: 1
+    sortHierarchyByName: 1
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    fileIdsGeneration: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 1
+    useFileUnits: 1
+    keepQuads: 0
+    weldVertices: 0
+    bakeAxisConversion: 0
+    preserveHierarchy: 0
+    skinWeightsMode: 0
+    maxBonesPerVertex: 4
+    minBoneWeight: 0.001
+    meshOptimizationFlags: 1
+    indexFormat: 2
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15
+    secondaryUVHardAngle: 88
+    secondaryUVMarginMethod: 1
+    secondaryUVMinLightmapResolution: 40
+    secondaryUVMinObjectScale: 1
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 0
+    normalCalculationMode: 4
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 1
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  referencedClips:
+  - abc00000000009011875543512187071
+  - abc00000000010273148928923738314
+  - abc00000000007726146496074554380
+  - abc00000000012411375021362197222
+  - abc00000000013545420146208118586
+  - abc00000000008809060318069908213
+  - abc00000000008096899573969220074
+  - abc00000000003269394177053160025
+  - abc00000000001732721522920945856
+  - abc00000000004252062789397105167
+  - abc00000000007409085770869880912
+  - abc00000000012795229129311331198
+  - abc00000000008929685647751622645
+  - abc00000000017101419199777277469
+  - abc00000000004627579520040982567
+  - abc00000000006341796512021393605
+  - abc00000000005222480224392896099
+  - abc00000000000884699378014539936
+  - abc00000000003122058153320426834
+  - abc00000000005246650201000583153
+  - abc00000000017820136762403821115
+  - abc00000000003078153416787968708
+  - abc00000000017515911418192346512
+  - abc00000000002150547770581669153
+  - abc00000000006379218573032659224
+  - abc00000000013989326740933251835
+  - abc00000000016560701482334839629
+  - abc00000000016088243377986867576
+  - abc00000000004873330743497904350
+  - abc00000000010123955142385243252
+  - abc00000000001433841754376228872
+  - abc00000000002769297257524489191
+  - abc00000000009621519090838086520
+  - abc00000000012366191126519584331
+  - abc00000000011293888897589412146
+  - abc00000000000352585854245170205
+  - abc00000000015825309979999921698
+  - abc00000000002886723294876181004
+  - abc00000000008273169418669283847
+  - abc00000000004006902273917030383
+  - abc00000000010058751267232537045
+  - abc00000000015874899040811169431
+  - abc00000000017201439065186536081
+  - abc00000000016629190930858573778
+  - abc00000000002951468484311086816
+  - abc00000000000659532179592421507
+  - abc00000000012330471496436198473
+  - abc00000000015405381161703848822
+  - abc00000000006151063232835306498
+  - abc00000000008822060017637143507
+  - abc00000000010492589443777651690
+  - abc00000000004209331551128594153
+  importAnimation: 1
+  humanDescription:
+    serializedVersion: 3
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    globalScale: 1
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  autoGenerateAvatarMappingIfUnspecified: 1
+  animationType: 0
+  humanoidOversampling: 1
+  avatarSetup: 0
+  addHumanoidExtraRootOnlyWhenUsingAvatar: 0
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
