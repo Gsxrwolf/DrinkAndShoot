@@ -15,8 +15,14 @@ public class UI_InGameInteraction : MonoBehaviour
     private Slider DrunkBalanceBar;
     [SerializeField] private FloatValue DrunkBalanceValue;
 
-    # region Crosshair Movement
-    
+    private Label PlayerHealthUI;
+    [SerializeField] private FloatValue PlayerHealth;
+
+    private Label AmmunitionUI;
+    [SerializeField] private FloatValue Ammunition;
+
+    #region Crosshair Movement
+
     private VisualElement Crosshair;
     private Vector3 StartCrosshairPosition;
     private Vector3 OffsetCrosshairPosition;
@@ -25,7 +31,7 @@ public class UI_InGameInteraction : MonoBehaviour
 
     #endregion
 
-    
+
 
     // Start is called before the first frame update
     void Start()
@@ -34,15 +40,16 @@ public class UI_InGameInteraction : MonoBehaviour
         this.DrunkBalanceBar = this.RootVisualElement.Q<Slider>("BalanceBarSlider");
         this.DrunkProgressBar = this.RootVisualElement.Q<ProgressBar>("DrunkScaleProgressBar");
         this.Crosshair = this.RootVisualElement.Q<VisualElement>("CrosshairImage");
+        this.PlayerHealthUI = this.RootVisualElement.Q<Label>("HealthValue");
 
         this.StartCrosshairPosition = this.Crosshair.transform.position;
-        
+
         this.DrunkProgressValue.FOnValueSet += SetDrunkScale;
-        this.DrunkProgressValue.FOnValueAddChanged += AddDrunkScale;
-        
+
         this.DrunkBalanceValue.FOnValueSet += SetDrunkBalance;
-        this.DrunkBalanceValue.FOnValueAddChanged += AddDrunkBalance;
-        
+
+        this.PlayerHealth.FOnValueSet += SetPlayerHealth;
+
     }
 
     private void Update()
@@ -57,7 +64,7 @@ public class UI_InGameInteraction : MonoBehaviour
     private void CalculateCrosshairMovement()
     {
         this.IsMovementFinished = false;
-        
+
         float range = (this.DrunkProgressBar.value - 100) * 10;
 
         float randomX = Random.Range(-range, range);
@@ -72,7 +79,7 @@ public class UI_InGameInteraction : MonoBehaviour
     private void MoveCrosshair()
     {
         Vector3 newCrosshairPosition = Vector3.Lerp(this.StartCrosshairPosition, this.OffsetCrosshairPosition, Time.deltaTime);
-        
+
         if (Vector3.Distance(this.Crosshair.transform.position, newCrosshairPosition) < 0.1f)
         {
             this.StartCrosshairPosition = newCrosshairPosition;
@@ -89,15 +96,6 @@ public class UI_InGameInteraction : MonoBehaviour
     {
         this.DrunkBalanceBar.value = this.DrunkBalanceValue.GetValue();
     }
-    
-    /// <summary>
-    /// Add a value to the Balance Bar
-    /// </summary>
-    /// <param name="value">Value to add on the current Value (can be Positive and Negative)</param>
-    private void AddDrunkBalance(float value)
-    {
-        this.DrunkBalanceBar.value += value;
-    }
 
     /// <summary>
     /// Set the Drunk Scale value between 0 and 100
@@ -106,15 +104,17 @@ public class UI_InGameInteraction : MonoBehaviour
     {
         this.DrunkProgressBar.value = this.DrunkProgressValue.GetValue();
     }
-    
+
     /// <summary>
-    /// Add a value to the Drunk Scale
+    /// Set the Player health via the scriptable Object
     /// </summary>
-    /// <param name="value">Value to add on the current Value (Value can be Positive and Negative) </param>
-    private void AddDrunkScale(float value)
+    private void SetPlayerHealth()
     {
-        
-        
-        this.DrunkProgressBar.value += value;
+        this.PlayerHealthUI.text = Convert.ToString(this.PlayerHealth.GetValue());
+    }
+
+    private void SetAmmunition()
+    {
+
     }
 }

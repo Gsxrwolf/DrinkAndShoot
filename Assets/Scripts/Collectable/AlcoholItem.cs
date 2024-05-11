@@ -10,12 +10,16 @@ public enum EAlcoholType
 public abstract class AlcoholItem : MonoBehaviour, ICollectable
 {
     protected EAlcoholType AlcoholType;
-    protected float AlcoholContent;
+    [SerializeField] protected float AlcoholContent;
 
     public void Collect(GameObject collector)
     {
+        if (collector.tag != "Player") return;
+
         Drunkenness drunkComponent = collector.GetComponent<Drunkenness>();
 
-        if (drunkComponent != null) drunkComponent.AddDrunkenness(this.AlcoholContent);    
+        if (drunkComponent != null) drunkComponent.AddDrunkenness(this.AlcoholContent);
+
+        Destroy(this.gameObject);
     }
 }

@@ -7,6 +7,5 @@ public class ItemPickUp : MonoBehaviour
         ICollectable collectable = collision.GetComponent<ICollectable>();
 
         collectable?.Collect(this.gameObject);
-
     }
 }

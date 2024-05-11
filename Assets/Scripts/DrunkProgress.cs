@@ -49,10 +49,7 @@ public class DrunkProgress : MonoBehaviour, ISequentialTimeCall
         float decreaseValue = (1 + 1 * this.PlayerCurrentMovementSpeed.GetValue()) * -1;
         
         if ((this.DrunkennessValue.GetValue() + decreaseValue) is < 0) this.DrunkennessValue.SetValue(0);
-        else if ((this.DrunkennessValue.GetValue() + decreaseValue) is > 0 or < 100) this.DrunkennessValue.AddValue(decreaseValue * 20);
-        
-        
-        
+        else if ((this.DrunkennessValue.GetValue() + decreaseValue) is > 0 or < 100) this.DrunkennessValue.AddValue(decreaseValue * 15);
     }
     
     /// <summary>
