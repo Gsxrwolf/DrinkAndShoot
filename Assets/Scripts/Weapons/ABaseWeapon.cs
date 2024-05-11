@@ -66,9 +66,11 @@ namespace Weapons
         private Coroutine m_reloadCoroutine = null;
         private Coroutine m_actionCorutine = null;
 
+        public abstract void FullRestore();
+
         public void StartReload()
         {
-            if (m_reloadCoroutine != null)
+            if (m_reloadCoroutine != null || m_actionCorutine != null)
                 return;
 
             m_reloadCoroutine = StartCoroutine(PerformReload());
@@ -77,7 +79,7 @@ namespace Weapons
 
         public void StartAction()
         {
-            if (m_actionCorutine != null)
+            if (m_actionCorutine != null || m_reloadCoroutine != null)
                 return;
 
             m_actionCorutine = StartCoroutine(PerformAction());
