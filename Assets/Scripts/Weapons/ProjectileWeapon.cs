@@ -38,7 +38,7 @@ namespace Weapons
             {
                 return m_currentAmmo;
             }
-            private set
+            protected set
             {
                 if (m_currentAmmo == value)
                     return;
@@ -54,7 +54,7 @@ namespace Weapons
             {
                 return m_currentClipSize;
             }
-            private set
+            protected set
             {
                 if (m_currentClipSize == value)
                     return;
@@ -65,64 +65,72 @@ namespace Weapons
         }
 
         [SerializeField]
-        private int m_maxAmmo = 20;
+        protected int m_maxAmmo = 20;
         [SerializeField]
-        private int m_maxClipSize = 5;
+        protected int m_maxClipSize = 5;
         [SerializeField]
-        private BaseProjectile m_projectilePrefab = null;
+        protected BaseProjectile m_projectilePrefab = null;
 
         // TODO: replace with animation based values
         [SerializeField]
-        private float m_timeBetweenShots = 0.5f;
+        protected float m_timeBetweenShots = 0.5f;
         [SerializeField]
-        private float m_reloadTime = 5.0f;
+        protected float m_reloadTime = 5.0f;
         [SerializeField]
-        private Transform m_muzzlePoint = null;
+        protected Transform m_muzzlePoint = null;
 
         private event System.Action<ProjectileWeapon, int> m_onCurrentAmmoChanged;
         private event System.Action<ProjectileWeapon, int> m_onCurrentClipSizeChanged;
 
-        private int m_currentAmmo = 0;
-        private int m_currentClipSize = 0;
+        protected int m_currentAmmo = 0;
+        protected int m_currentClipSize = 0;
 
-        protected override IEnumerator PerformAction()
+        protected override IEnumerator PerformPrimaryAction()
         {
             if (CurrentClipSize == 0)
             {
-                ActionFinished();
+                PrimaryActionFinished();
                 yield break;
             }
 
             BaseProjectile projectile = Instantiate(m_projectilePrefab, m_muzzlePoint.position, m_muzzlePoint.rotation);
             if (projectile == null)
             {
-                ActionFinished();
+                PrimaryActionFinished();
                 yield break;
             }
 
+            m_audioSource.clip = m_primaryActionClip;
+            m_audioSource.Play();
+            m_animator?.SetTrigger("Primary");
             projectile.Shoot();
             CurrentClipSize--;
 
-            yield return new WaitForSeconds(m_timeBetweenShots);
-            ActionFinished();
+            yield return new WaitWhile(() => m_audioSource.isPlaying);
+
+            PrimaryActionFinished();
         }
 
-        protected override IEnumerator PerformReload()
+        protected override IEnumerator PerformSecondaryAction()
         {
             if (CurrentAmmo == 0)
             {
-                ReloadFinished();
+                SecondaryActionFinished();
                 yield break;
             }
 
-            yield return new WaitForSeconds(m_reloadTime);
+            m_audioSource.clip = m_secondaryActionClip;
+            m_audioSource.Play();
+            m_animator?.SetTrigger("Secondary");
+
+            yield return new WaitWhile(() => m_audioSource.isPlaying);
 
             int newClipSize = CurrentAmmo >= m_maxClipSize ? m_maxClipSize : CurrentAmmo;
 
             CurrentClipSize = newClipSize;
             CurrentAmmo -= newClipSize;
 
-            ReloadFinished();
+            SecondaryActionFinished();
         }
 
         public override void FullRestore()

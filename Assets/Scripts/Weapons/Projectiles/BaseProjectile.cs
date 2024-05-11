@@ -23,5 +23,10 @@ namespace Weapons.Projectiles
             m_rigidbody.AddForce(transform.forward * m_movementSpeed, ForceMode.Impulse);
             Destroy(this.gameObject, m_timeToKill);
         }
+
+        private void OnTriggerEnter(Collider _other)
+        {
+            Destroy(this.gameObject);
+        }
     }
 }
