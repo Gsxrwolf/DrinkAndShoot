@@ -13,7 +13,9 @@ GameObject:
   - component: {fileID: 5533671062348168369}
   - component: {fileID: 2185076298134348}
   - component: {fileID: 2896271177297823113}
-  m_Layer: 0
+  - component: {fileID: 1276964128401314179}
+  - component: {fileID: 518616516086567493}
+  m_Layer: 6
   m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -160,7 +162,19 @@ MonoBehaviour:
     m_ActionId: 8ffba076-4964-40e7-b8ab-ed56ae21d2f5
     m_ActionName: 'Player/Look[/Mouse/delta,/Pen/delta]'
   - m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 518616516086567493}
+        m_TargetAssemblyTypeName: Player.PlayerActions, Assembly-CSharp
+        m_MethodName: OnFire
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_ActionId: 54b7f2c4-bc9e-4859-a43a-c67be64b25e8
     m_ActionName: 'Player/Fire[/Mouse/leftButton]'
   - m_PersistentCalls:
@@ -203,11 +217,51 @@ MonoBehaviour:
       m_Calls: []
     m_ActionId: a25856db-a436-4a68-bcf2-1fa8be87ded3
     m_ActionName: UI/TrackedDeviceOrientation
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 518616516086567493}
+        m_TargetAssemblyTypeName: Player.PlayerActions, Assembly-CSharp
+        m_MethodName: OnReload
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 2e23d72e-849b-40fb-a5ae-1258ceb929ce
+    m_ActionName: 'Player/Reload[/Keyboard/r]'
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
+--- !u!114 &1276964128401314179
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3115348595296484574}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fa429a95f8ae4b7ab2c325f3bd13890f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &518616516086567493
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3115348595296484574}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e4b1596c6b337814989b0ae29b3b3a19, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6244617582506183633
 GameObject:
   m_ObjectHideFlags: 0
@@ -217,7 +271,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4584537126548398093}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Head
   m_TagString: Untagged
   m_Icon: {fileID: 0}
