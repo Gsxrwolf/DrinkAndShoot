@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2851437083792754892}
   - component: {fileID: 7173438558048655774}
+  - component: {fileID: 7785419260948474933}
   m_Layer: 0
   m_Name: InGameUI
   m_TagString: Untagged
@@ -49,3 +50,17 @@ MonoBehaviour:
   sourceAsset: {fileID: 9197481963319205126, guid: 85464fa056b8c87beb891a6625948158,
     type: 3}
   m_SortingOrder: 0
+--- !u!114 &7785419260948474933
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6171904048140819934}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6b4babe32774636428fcd6dae9c79c0a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  DrunkProgressValue: {fileID: 11400000, guid: c8ba28d0da2482ca1a1203d61e20011a, type: 2}
+  DrunkBalanceValue: {fileID: 11400000, guid: 955c9cbbc60a9b037a7cab21f2f35591, type: 2}

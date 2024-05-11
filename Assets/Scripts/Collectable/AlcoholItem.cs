@@ -20,6 +20,6 @@ public abstract class AlcoholItem : MonoBehaviour, ICollectable
 
         if (drunkComponent != null) drunkComponent.AddDrunkenness(this.AlcoholContent);
 
-        DestroyImmediate(this.gameObject);
+        Destroy(this.gameObject);
     }
 }

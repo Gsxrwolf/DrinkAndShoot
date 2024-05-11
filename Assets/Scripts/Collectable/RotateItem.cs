@@ -19,10 +19,7 @@ public class RotateItem : MonoBehaviour
     /// </summary>
     private void InitItemPosition()
     {
-        Debug.Log(transform.parent.position);
         this.StartPosition = transform.position;
-
-
     }
 
     // Update is called once per frame
