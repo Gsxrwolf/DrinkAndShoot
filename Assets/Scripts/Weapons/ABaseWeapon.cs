@@ -59,6 +59,8 @@ namespace Weapons
             }
         }
 
+        public bool IsInUse => m_primaryActionCorutine != null || m_secondaryActionCoroutine != null;
+
         [SerializeField]
         protected AudioClip m_primaryActionClip = null;
         [SerializeField]
@@ -82,7 +84,7 @@ namespace Weapons
         }
 
         public abstract void FullRestore();
-
+        
         public void StartSecondaryAction()
         {
             if (m_secondaryActionCoroutine != null || m_primaryActionCorutine != null)
@@ -90,6 +92,8 @@ namespace Weapons
 
             m_secondaryActionCoroutine = StartCoroutine(PerformSecondaryAction());
             m_onSecondaryActionStarted?.Invoke(this);
+
+            
         }
 
         public void StartPrimaryAction()

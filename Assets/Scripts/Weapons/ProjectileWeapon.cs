@@ -138,11 +138,5 @@ namespace Weapons
             CurrentAmmo = m_maxAmmo;
             CurrentClipSize = m_maxClipSize;
         }
-
-        private void OnGUI()
-        {
-            GUILayout.Label("Ammo: " + CurrentAmmo);
-            GUILayout.Label("Clip: " + CurrentClipSize);
-        }
     }
 }

@@ -35,7 +35,7 @@ namespace Collectable
         public void Collect(GameObject _collector)
         {
             PlayerActions actions = _collector.GetComponent<PlayerActions>();
-            if (actions != null)
+            if (actions != null && (actions.CurrentWeapon == null || !actions.CurrentWeapon.IsInUse))
             {
                 actions.EquipWeapon(m_weapon);
                 m_originPool.ReturnToPool(this);
