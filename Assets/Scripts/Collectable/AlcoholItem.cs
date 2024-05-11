@@ -10,7 +10,7 @@ public enum EAlcoholType
 public abstract class AlcoholItem : MonoBehaviour, ICollectable
 {
     protected EAlcoholType AlcoholType;
-    protected float AlcoholContent;
+    [SerializeField] protected float AlcoholContent;
 
     public void Collect(GameObject collector)
     {
