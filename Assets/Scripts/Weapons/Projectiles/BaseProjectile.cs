@@ -8,6 +8,8 @@ namespace Weapons.Projectiles
     {
         [SerializeField]
         private float m_movementSpeed = 20;
+        [SerializeField]
+        private float m_timeToKill = 10;
 
         private Rigidbody m_rigidbody = null;
         
@@ -19,6 +21,7 @@ namespace Weapons.Projectiles
         public void Shoot()
         {
             m_rigidbody.AddForce(transform.forward * m_movementSpeed, ForceMode.Impulse);
+            Destroy(this.gameObject, m_timeToKill);
         }
     }
 }
