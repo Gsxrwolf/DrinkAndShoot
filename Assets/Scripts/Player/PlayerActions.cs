@@ -40,13 +40,22 @@ namespace Player
             }
 
             ABaseWeapon previous = m_currentWeapon;
+            if (previous != null)
+            {
+                previous.gameObject.SetActive(false);
+            }
 
             m_currentWeapon = _weapon;
+            if (m_currentWeapon == null)
+                return;
+           
             m_currentWeapon.FullRestore();
             m_currentWeapon.transform.SetParent(m_rightWeaponSocket);
             
             m_currentWeapon.transform.localPosition = Vector3.zero;
             m_currentWeapon.transform.localRotation = Quaternion.identity;
+
+            m_currentWeapon.gameObject.SetActive(true);
 
             m_onWeaponChanged?.Invoke(previous, m_currentWeapon);
         }
