@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class Drunkenness : MonoBehaviour
 {
-    private FloatValue DrunkennessValue;
+    [SerializeField] private FloatValue DrunkennessValue;
 
     public void AddDrunkenness(float drunkenness)
     {

@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class Health : MonoBehaviour
 {
-    private FloatValue HealthValue;
+    [SerializeField] private FloatValue HealthValue;
 
     public void AddHealth(float health)
     {

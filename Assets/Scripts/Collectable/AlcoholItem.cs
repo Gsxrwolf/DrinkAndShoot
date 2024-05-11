@@ -14,8 +14,12 @@ public abstract class AlcoholItem : MonoBehaviour, ICollectable
 
     public void Collect(GameObject collector)
     {
+        if (collector.tag != "Player") return;
+
         Drunkenness drunkComponent = collector.GetComponent<Drunkenness>();
 
-        if (drunkComponent != null) drunkComponent.AddDrunkenness(this.AlcoholContent);    
+        if (drunkComponent != null) drunkComponent.AddDrunkenness(this.AlcoholContent);
+
+        DestroyImmediate(this.gameObject);
     }
 }
