@@ -62,6 +62,23 @@
       },
       "url": "https://packages.unity.com"
     },
+    "com.unity.inputsystem": {
+      "version": "1.7.0",
+      "depth": 1,
+      "source": "registry",
+      "dependencies": {
+        "com.unity.modules.uielements": "1.0.0"
+      },
+      "url": "https://packages.unity.com"
+    },
+    "com.unity.inputsystem.switch": {
+      "version": "file:C:/Nintendo/DevEnv/UnityForNintendoSwitch/Packages/com.unity.inputsystem.switch@0.1.6-pre",
+      "depth": 0,
+      "source": "local",
+      "dependencies": {
+        "com.unity.inputsystem": "1.1.0-pre.5"
+      }
+    },
     "com.unity.mathematics": {
       "version": "1.2.6",
       "depth": 1,
