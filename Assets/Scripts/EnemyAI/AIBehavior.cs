@@ -87,9 +87,9 @@ public class AIBehavior : MonoBehaviour
 
     public void DespawnEnemy()
     {
-        spawner.DespawnEnemy(this.gameObject);
-
         SpawnRandomDrop();
+
+        spawner.DespawnEnemy(this.gameObject);
     }
 
     private void SpawnRandomDrop()
@@ -100,6 +100,6 @@ public class AIBehavior : MonoBehaviour
 
         drop = itemDrops[rnd.Next(itemDrops.Length)];
 
-        Instantiate(drop, transform.position, transform.rotation, drop.transform);
+        Instantiate(drop, transform.position, transform.rotation);
     }
 }

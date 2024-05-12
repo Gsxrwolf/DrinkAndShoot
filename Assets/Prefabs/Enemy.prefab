@@ -130,6 +130,13 @@ MonoBehaviour:
   damage: 1
   health: 20
   isDead: 0
+  itemDrops:
+  - {fileID: 6570175404295456635}
+  - {fileID: 4218597661778393397, guid: f3bdc7813f1517949bc239fe962866cd, type: 3}
+  - {fileID: 3439677878894264564, guid: fc866a8569b0a2d4c9ecb5df15d34ce1, type: 3}
+  - {fileID: 1624962432196761190, guid: c10fa0a91862f1745830c83ca4e12e3f, type: 3}
+  - {fileID: 8862618568126164850, guid: 32ec2d7e19958074ba30cdbf92fc2666, type: 3}
+  - {fileID: 7011235140305733997, guid: f73b97a2fc69e274ebb15c2a1bff30c9, type: 3}
 --- !u!195 &5390816941178133013
 NavMeshAgent:
   m_ObjectHideFlags: 0

@@ -13,7 +13,9 @@ namespace Player
         [SerializeField]
         private float m_movementSpeed = 5.0f;
         [SerializeField]
-        private float m_rotationSpeed = 60.0f;
+        private float m_yawSpeed = 60.0f;
+        [SerializeField]
+        private float m_pitchSpeed = 30.0f;
 
         [SerializeField]
         private Transform m_pitchTransform = null;
@@ -35,15 +37,32 @@ namespace Player
             m_rigidbody.velocity = velocity;
 
             Vector3 pitchRotation = m_pitchTransform.localEulerAngles;
-            pitchRotation.x += RotationInput.y * m_rotationSpeed * Time.deltaTime;
+
+            float deltaPitch = RotationInput.y * m_pitchSpeed * Time.deltaTime * -1;
+            float newPitch = pitchRotation.x + deltaPitch;
+
+            newPitch = NormalizeAngle(newPitch);
+
+            newPitch = Mathf.Clamp(newPitch, -60, 60);
+
+            pitchRotation.x = newPitch;
+            m_pitchTransform.localEulerAngles = pitchRotation;
 
             m_pitchTransform.localEulerAngles = pitchRotation;
 
             Vector3 yawRotation = transform.localEulerAngles;
-            yawRotation.y += RotationInput.x * m_rotationSpeed * Time.deltaTime;
-
+            yawRotation.y += RotationInput.x * m_yawSpeed * Time.deltaTime;
+            
             transform.localEulerAngles = yawRotation;
         }
+
+        private float NormalizeAngle(float _angle)
+        {
+            while (_angle > 180) _angle -= 360;
+            while (_angle < -180) _angle += 360;
+            return _angle;
+        }
+
 
         public void OnMove(InputAction.CallbackContext _context)
         {
