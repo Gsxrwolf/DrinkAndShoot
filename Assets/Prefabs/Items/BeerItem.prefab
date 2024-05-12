@@ -165,4 +165,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d1b961bdd314406188b971ef4b8c27e1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AlcoholContent: 5
+  AlcoholContent: 20
