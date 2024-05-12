@@ -51,8 +51,8 @@ MonoBehaviour:
   enemyRefillAmount: 2
   maxEnemyAmount: 30
   cachePosition: {x: 0, y: -1000, z: 0}
-  enemySpawnDistance: 5
-  enemySpawnRange: 40
+  enemySpawnDistance: 2
+  enemySpawnRange: 20
   spawnableFloorTag: spawnableFloor
   spawnRate: 1
   activeCount: 0

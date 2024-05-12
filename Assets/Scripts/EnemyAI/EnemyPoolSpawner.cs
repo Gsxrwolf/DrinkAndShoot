@@ -24,10 +24,6 @@ public class EnemyPoolSpawner : MonoBehaviour
 
     private float timer;
     [SerializeField] public float spawnRate;
-
-
-    [SerializeField] public float activeCount;
-    [SerializeField] public float cacheCount;
     void Start()
     {
         InstantiateNewEnemies(enemyStartAmount);
@@ -35,8 +31,6 @@ public class EnemyPoolSpawner : MonoBehaviour
 
     void Update()
     {
-        activeCount = activeEnemyList.Count;
-        cacheCount = cacheEnemyList.Count;
 
         if (activeEnemyList.Count + cacheEnemyList.Count < maxEnemyAmount)
         {
@@ -98,7 +92,6 @@ public class EnemyPoolSpawner : MonoBehaviour
         RaycastHit hit;
         if (Physics.Raycast(spawnPosition, Vector3.down, out hit))
         {
-            Debug.DrawLine(spawnPosition, hit.point, Color.red, 10);
             if (hit.collider.CompareTag(spawnableFloorTag))
             {
                 spawnPosition = hit.point;
