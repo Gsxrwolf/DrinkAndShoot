@@ -21,6 +21,8 @@ public class AIBehavior : MonoBehaviour
 
     [SerializeField] bool isDead;
 
+    [SerializeField] GameObject[] itemDrops;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -31,7 +33,7 @@ public class AIBehavior : MonoBehaviour
 
     void Update()
     {
-        if(isDead)
+        if (isDead)
         {
             return;
         }
@@ -86,5 +88,18 @@ public class AIBehavior : MonoBehaviour
     public void DespawnEnemy()
     {
         spawner.DespawnEnemy(this.gameObject);
+
+        SpawnRandomDrop();
+    }
+
+    private void SpawnRandomDrop()
+    {
+        System.Random rnd = new System.Random();
+
+        GameObject drop;
+
+        drop = itemDrops[rnd.Next(itemDrops.Length)];
+
+        Instantiate(drop, transform.position, transform.rotation, drop.transform);
     }
 }
