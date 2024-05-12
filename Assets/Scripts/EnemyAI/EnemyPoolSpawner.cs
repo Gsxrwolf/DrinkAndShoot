@@ -87,22 +87,26 @@ public class EnemyPoolSpawner : MonoBehaviour
     private Vector3 GetNewSpawnPosition()
     {
         Vector3 spawnPosition;
-
         System.Random rnd = new System.Random();
 
-        spawnPosition = (Quaternion.AngleAxis(rnd.Next(-enemySpawnRange, enemySpawnRange), Vector3.up) * player.transform.forward.normalized) * enemySpawnDistance;
+        float randomAngle = rnd.Next(-enemySpawnRange, enemySpawnRange);
+
+        Vector3 randomDirection = Quaternion.AngleAxis(randomAngle, player.transform.up) * player.transform.forward;
+
+        spawnPosition = player.transform.position + randomDirection * enemySpawnDistance;
+
         RaycastHit hit;
-        Physics.Raycast(spawnPosition, Vector3.down, out hit);
-        if (hit.collider.CompareTag(spawnableFloorTag))
+        if (Physics.Raycast(spawnPosition, Vector3.down, out hit))
         {
-            spawnPosition = hit.point;
-        }
-        else
-        {
-            spawnPosition = GetNewSpawnPosition();
+            Debug.DrawLine(spawnPosition, hit.point, Color.red, 10);
+            if (hit.collider.CompareTag(spawnableFloorTag))
+            {
+                spawnPosition = hit.point;
+                return spawnPosition;
+            }
         }
 
-
-        return spawnPosition;
+        return GetNewSpawnPosition();
     }
 }
+

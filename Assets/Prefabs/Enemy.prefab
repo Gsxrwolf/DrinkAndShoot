@@ -123,8 +123,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7d161c90cddbade49aed25549f580139, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attackRange: 2
-  sprintRange: 5
+  player: {fileID: 0}
+  spawner: {fileID: 0}
+  attackRange: 0.5
+  sprintRange: 3
   damage: 1
   health: 20
   isDead: 0
