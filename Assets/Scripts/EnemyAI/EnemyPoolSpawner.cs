@@ -32,7 +32,7 @@ public class EnemyPoolSpawner : MonoBehaviour
     void Update()
     {
 
-        if (activeEnemyList.Count + cacheEnemyList.Count < maxEnemyAmount)
+        if (activeEnemyList.Count < maxEnemyAmount)
         {
             timer += Time.deltaTime;
             if (timer > spawnRate)
