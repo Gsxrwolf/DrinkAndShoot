@@ -1,3 +1,4 @@
+using UnityEditor.Animations;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using Weapons;
@@ -73,6 +74,7 @@ namespace Player
             ABaseWeapon previous = m_currentWeapon;
             if (previous != null)
             {
+                previous.Reset();
                 previous.gameObject.SetActive(false);
             }
 

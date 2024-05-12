@@ -84,16 +84,15 @@ public class UI_InGameInteraction : MonoBehaviour
     {
         this.QuitButton?.RegisterCallback<ClickEvent>(QuitToMainMenu);
         this.RestartButton?.RegisterCallback<ClickEvent>(RestartLevel);
+
+        GameObject player = GameObject.Find("Player");
+        player.GetComponent<PlayerActions>().OnWeaponChanged += WeaponChange;
     }
 
     private void OnDisable()
     {
         this.QuitButton?.UnregisterCallback<ClickEvent>(QuitToMainMenu);
         this.RestartButton?.UnregisterCallback<ClickEvent>(RestartLevel);
-        GameObject player = GameObject.Find("Player");
-
-        player.GetComponent<PlayerActions>().OnWeaponChanged += WeaponChange;
-
     }
 
     private void Update()

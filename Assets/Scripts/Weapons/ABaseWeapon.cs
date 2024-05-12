@@ -84,7 +84,21 @@ namespace Weapons
         }
 
         public abstract void FullRestore();
-        
+        public virtual void Reset()
+        {
+            if (m_primaryActionCorutine != null)
+            {
+                StopCoroutine(m_primaryActionCorutine);
+                m_primaryActionCorutine = null;
+            }
+
+            if (m_secondaryActionCoroutine != null)
+            {
+                StopCoroutine(m_secondaryActionCoroutine);
+                m_secondaryActionCoroutine = null;
+            }
+        }
+
         public void StartSecondaryAction()
         {
             if (m_secondaryActionCoroutine != null || m_primaryActionCorutine != null)
@@ -92,8 +106,6 @@ namespace Weapons
 
             m_secondaryActionCoroutine = StartCoroutine(PerformSecondaryAction());
             m_onSecondaryActionStarted?.Invoke(this);
-
-            
         }
 
         public void StartPrimaryAction()

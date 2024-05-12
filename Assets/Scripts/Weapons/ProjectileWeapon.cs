@@ -138,5 +138,11 @@ namespace Weapons
             CurrentAmmo = m_maxAmmo;
             CurrentClipSize = m_maxClipSize;
         }
+
+        public override void Reset()
+        {
+            base.Reset();
+            m_animator?.SetTrigger("Reset");
+        }
     }
 }
