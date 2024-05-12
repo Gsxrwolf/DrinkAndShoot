@@ -228,30 +228,4 @@ public class UI_InGameInteraction : MonoBehaviour
             }
         }
     }
-
-    private void QuitToMainMenu(ClickEvent _event)
-    {
-        SceneLoader.Instance.LoadScene(MyScenes.MainMenu);
-    }
-
-    private void RestartLevel(ClickEvent _event)
-    {
-        SceneLoader.Instance.LoadScene(MyScenes.Reset);
-    }
-
-    public void OnSubmit(InputAction.CallbackContext _context)
-    {
-        // Workaround because buttons are not reacting to submit event
-        if (_context.started)
-        {
-            if (RootVisualElement.focusController.focusedElement == QuitButton)
-            {
-                QuitToMainMenu(null);
-            }
-            else if (RootVisualElement.focusController.focusedElement == RestartButton)
-            {
-                RestartLevel(null);
-            }
-        }
-    }
 }
