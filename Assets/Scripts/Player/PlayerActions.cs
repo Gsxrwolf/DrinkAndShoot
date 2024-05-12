@@ -29,10 +29,29 @@ namespace Player
 
         private bool m_isShooting = false;
 
+        [SerializeField]
+        private FloatValue m_playerHealth = null;
+
         private void Awake()
         {
             Cursor.lockState = CursorLockMode.Locked;
             m_rightWeaponSocket = GameObject.FindGameObjectWithTag("RightWeaponSocket").transform;
+
+            m_playerHealth.FOnValueSet += DisableControlsOnDeath;
+        }
+
+        private void DisableControlsOnDeath()
+        {
+            if (m_playerHealth.GetValue() <= 0)
+            {
+                GetComponent<PlayerInput>().SwitchCurrentActionMap("UI");
+                if (CurrentWeapon != null)
+                {
+                    CurrentWeapon.gameObject.SetActive(false);
+                }
+                Cursor.lockState = CursorLockMode.None;
+                Cursor.visible = true;
+            }
         }
 
         private void Update()
@@ -60,10 +79,10 @@ namespace Player
             m_currentWeapon = _weapon;
             if (m_currentWeapon == null)
                 return;
-           
+
             m_currentWeapon.FullRestore();
             m_currentWeapon.transform.SetParent(m_rightWeaponSocket);
-            
+
             m_currentWeapon.transform.localPosition = Vector3.zero;
             m_currentWeapon.transform.localRotation = Quaternion.identity;
 

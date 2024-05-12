@@ -64,3 +64,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   DrunkProgressValue: {fileID: 11400000, guid: c8ba28d0da2482ca1a1203d61e20011a, type: 2}
   DrunkBalanceValue: {fileID: 11400000, guid: 955c9cbbc60a9b037a7cab21f2f35591, type: 2}
+  PlayerHealth: {fileID: 11400000, guid: f90541b2b5ddeca409ef4fef63e8e2be, type: 2}
+  Ammunition: {fileID: 0}
+  MainMenuScene: MainMenu
+  ResetScene: ResetScene

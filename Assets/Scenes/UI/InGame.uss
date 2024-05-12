@@ -1,2 +1,73 @@
 .unity-base-slide_tracker {
 }
+
+.hidden-content {
+    display: none;
+}
+
+.h1-bold {
+    font-size: 48px;
+    -unity-font-style: bold;
+    -unity-paragraph-spacing: 56px;
+}
+
+.h1 {
+    font-size: 48px;
+    -unity-paragraph-spacing: 56px;
+    color: rgb(255, 255, 255);
+}
+
+.h2-bold {
+    font-size: 32px;
+    -unity-font-style: bold;
+    -unity-paragraph-spacing: 36px;
+}
+
+.h2 {
+    font-size: 32px;
+    -unity-paragraph-spacing: 36px;
+}
+
+.p1 {
+    font-size: 18px;
+    -unity-paragraph-spacing: 27px;
+}
+
+.p1-bold {
+    font-size: 18px;
+    -unity-paragraph-spacing: 27px;
+    -unity-font-style: bold;
+}
+
+.p2 {
+    font-size: 14px;
+    -unity-paragraph-spacing: 21px;
+}
+
+.p2-bold {
+    font-size: 14px;
+    -unity-paragraph-spacing: 21px;
+    -unity-font-style: bold;
+}
+
+.display-01-bold {
+    font-size: 72px;
+    -unity-paragraph-spacing: 80px;
+    -unity-font-style: bold;
+}
+
+.button-primary {
+    font-size: 48px;
+    -unity-paragraph-spacing: 56px;
+    border-radius: 20px;
+    background-color: mediumblue;
+    color: white;
+}
+
+.button-secondary {
+    font-size: 48px;
+    -unity-paragraph-spacing: 56px;
+    border-radius: 20px;
+    background-color: lightsteelblue;
+    color: white;
+}

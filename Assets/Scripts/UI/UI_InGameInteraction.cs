@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UIElements;
 using Random = UnityEngine.Random;
 
@@ -21,6 +22,13 @@ public class UI_InGameInteraction : MonoBehaviour
     private Label AmmunitionUI;
     [SerializeField] private FloatValue Ammunition;
 
+    private VisualElement InGameContainer;
+    private VisualElement GameOverContainer;
+    private Button QuitButton;
+    private Button RestartButton;
+
+    private const string HIDDEN_CONTENT_CLASS = "hidden-content";
+
     #region Crosshair Movement
 
     private VisualElement Crosshair;
@@ -34,13 +42,18 @@ public class UI_InGameInteraction : MonoBehaviour
 
 
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         this.RootVisualElement = GetComponent<UIDocument>().rootVisualElement;
         this.DrunkBalanceBar = this.RootVisualElement.Q<Slider>("BalanceBarSlider");
         this.DrunkProgressBar = this.RootVisualElement.Q<ProgressBar>("DrunkScaleProgressBar");
         this.Crosshair = this.RootVisualElement.Q<VisualElement>("CrosshairImage");
         this.PlayerHealthUI = this.RootVisualElement.Q<Label>("HealthValue");
+
+        this.InGameContainer = this.RootVisualElement.Q("InGameState");
+        this.GameOverContainer = this.RootVisualElement.Q("GameOverState");
+        this.QuitButton = this.RootVisualElement.Q<Button>("QuitButton");
+        this.RestartButton = this.RootVisualElement.Q<Button>("RestartButton");
 
         this.StartCrosshairPosition = this.Crosshair.transform.position;
 
@@ -49,7 +62,18 @@ public class UI_InGameInteraction : MonoBehaviour
         this.DrunkBalanceValue.FOnValueSet += SetDrunkBalance;
 
         this.PlayerHealth.FOnValueSet += SetPlayerHealth;
+    }
 
+    private void OnEnable()
+    {
+        this.QuitButton?.RegisterCallback<ClickEvent>(QuitToMainMenu);
+        this.RestartButton?.RegisterCallback<ClickEvent>(RestartLevel);
+    }
+
+    private void OnDisable()
+    {
+        this.QuitButton?.UnregisterCallback<ClickEvent>(QuitToMainMenu);
+        this.RestartButton?.UnregisterCallback<ClickEvent>(RestartLevel);
     }
 
     private void Update()
@@ -111,10 +135,30 @@ public class UI_InGameInteraction : MonoBehaviour
     private void SetPlayerHealth()
     {
         this.PlayerHealthUI.text = Convert.ToString(this.PlayerHealth.GetValue());
+
+        if (this.PlayerHealth.GetValue() <= 0)
+        {
+            InGameContainer.AddToClassList(HIDDEN_CONTENT_CLASS);
+            GameOverContainer.RemoveFromClassList(HIDDEN_CONTENT_CLASS);
+        }
     }
 
     private void SetAmmunition()
     {
 
+    }
+
+    private void QuitToMainMenu(ClickEvent _event)
+    {
+        _event.StopPropagation();
+
+        SceneLoader.Instance.LoadScene(MyScenes.MainMenu);
+    }
+
+    private void RestartLevel(ClickEvent _event)
+    {
+        _event.StopPropagation();
+
+        SceneLoader.Instance.LoadScene(MyScenes.Reset);
     }
 }

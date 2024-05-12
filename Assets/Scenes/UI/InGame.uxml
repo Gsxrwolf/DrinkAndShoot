@@ -1,24 +1,39 @@
 <ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
     <Style src="project://database/Assets/Scenes/UI/InGame.uss?fileID=7433441132597879392&amp;guid=1a74b631be3dbc24e909db6366b8efaa&amp;type=3#InGame" />
-    <ui:VisualElement style="flex-grow: 1;">
-        <ui:VisualElement name="HealthAndAmmu" style="flex-grow: 1; position: absolute; left: 0; right: auto; top: auto; bottom: 0; width: 18%; height: 25%;">
-            <ui:GroupBox name="HealthGroup" style="align-items: flex-start; align-self: flex-start; flex-direction: row; width: 100%; height: 50%; margin-top: 0; margin-right: 0; margin-bottom: 0; margin-left: 0;">
-                <ui:VisualElement name="HealthImage" style="flex-grow: 1; width: auto; height: 100%; flex-direction: row; background-image: url(&apos;project://database/Assets/Sprites/health-icon.jpg?fileID=2800000&amp;guid=90fe0a023c1f631ab99d977b96f8fc6d&amp;type=3#health-icon&apos;);" />
-                <ui:Label tabindex="-1" text="0" parse-escape-sequences="true" display-tooltip-when-elided="true" name="HealthValue" style="width: 55%; font-size: 100%; margin-left: 20px;" />
-            </ui:GroupBox>
-            <ui:GroupBox name="AmmuGroup" style="align-items: flex-start; align-self: flex-start; flex-direction: row; width: 100%; height: 50%; margin-top: 0; margin-right: 0; margin-bottom: 0; margin-left: 0;">
-                <ui:VisualElement name="AmmuImage" style="flex-grow: 1; width: auto; height: 100%; flex-direction: row; background-image: url(&apos;project://database/Assets/Sprites/icon-bullets.jpg?fileID=2800000&amp;guid=e1ae031f215ae97ebbf005e9f5f6e443&amp;type=3#icon-bullets&apos;);" />
-                <ui:Label tabindex="-1" text="0&#10;" parse-escape-sequences="true" display-tooltip-when-elided="true" name="AmmuValue" style="width: 55%; font-size: 100%; margin-left: 20px;" />
-            </ui:GroupBox>
+    <ui:VisualElement name="Viewport" style="flex-grow: 1;">
+        <ui:VisualElement name="InGameState" style="flex-grow: 1;">
+            <ui:VisualElement name="HealthAndAmmu" style="flex-grow: 1; position: absolute; left: 0; right: auto; top: auto; bottom: 0; width: 18%; height: 25%;">
+                <ui:GroupBox name="HealthGroup" style="align-items: flex-start; align-self: flex-start; flex-direction: row; width: 100%; height: 50%; margin-top: 0; margin-right: 0; margin-bottom: 0; margin-left: 0;">
+                    <ui:VisualElement name="HealthImage" style="flex-grow: 1; width: auto; height: 100%; flex-direction: row; background-image: url(&quot;project://database/Assets/Sprites/health-icon.jpg?fileID=2800000&amp;guid=90fe0a023c1f631ab99d977b96f8fc6d&amp;type=3#health-icon&quot;);" />
+                    <ui:Label tabindex="-1" text="0" parse-escape-sequences="true" display-tooltip-when-elided="true" name="HealthValue" style="width: 55%; font-size: 100%; margin-left: 20px;" />
+                </ui:GroupBox>
+                <ui:GroupBox name="AmmuGroup" style="align-items: flex-start; align-self: flex-start; flex-direction: row; width: 100%; height: 50%; margin-top: 0; margin-right: 0; margin-bottom: 0; margin-left: 0;">
+                    <ui:VisualElement name="AmmuImage" style="flex-grow: 1; width: auto; height: 100%; flex-direction: row; background-image: url(&quot;project://database/Assets/Sprites/icon-bullets.jpg?fileID=2800000&amp;guid=e1ae031f215ae97ebbf005e9f5f6e443&amp;type=3#icon-bullets&quot;);" />
+                    <ui:Label tabindex="-1" text="0&#10;" parse-escape-sequences="true" display-tooltip-when-elided="true" name="AmmuValue" style="width: 55%; font-size: 100%; margin-left: 20px;" />
+                </ui:GroupBox>
+            </ui:VisualElement>
+            <ui:VisualElement name="Crosshair" style="flex-grow: 1; position: absolute; left: 50%; top: 50%; right: 50%; bottom: 50%; width: 50px; height: 50px; align-items: auto; justify-content: center; align-self: auto;">
+                <ui:VisualElement name="CrosshairImage" style="flex-grow: 1; position: relative; left: -25px; top: -25px; right: -25px; bottom: -25px; background-image: url(&quot;project://database/Assets/Sprites/crosshair.png?fileID=2800000&amp;guid=af5a847ea265dd44cb20418176150759&amp;type=3#crosshair&quot;); width: 50px; height: 50px; align-items: auto; justify-content: center; align-self: auto;" />
+            </ui:VisualElement>
+            <ui:VisualElement name="DrunkScale" style="flex-grow: 1; left: 75%; top: 50%; bottom: 0; right: 0; width: 45%; height: 10%; position: absolute; flex-direction: column; flex-wrap: nowrap; align-self: auto; justify-content: space-around; align-items: auto; padding-top: 20px; padding-right: 20px; padding-bottom: 20px; padding-left: 20px; rotate: -90deg;">
+                <ui:ProgressBar value="55.9" name="DrunkScaleProgressBar" style="width: 100%; height: 10%; scale: 1 2; background-image: url(&quot;project://database/Assets/Sprites/health-icon.jpg?fileID=2800000&amp;guid=90fe0a023c1f631ab99d977b96f8fc6d&amp;type=3#health-icon&quot;); -unity-background-scale-mode: stretch-to-fill; background-color: rgba(178, 46, 46, 0.69); -unity-background-image-tint-color: rgba(183, 104, 1, 0.91);" />
+            </ui:VisualElement>
+            <ui:VisualElement name="BalanceBar" style="flex-grow: 1;">
+                <ui:Slider picking-mode="Ignore" value="0" high-value="100" low-value="-100" inverted="false" name="BalanceBarSlider" class="unity-base-slide_tracker" style="width: 50%; left: 25%; top: 5%; height: -8%; scale: 1 5;" />
+            </ui:VisualElement>
         </ui:VisualElement>
-        <ui:VisualElement name="Crosshair" style="flex-grow: 1; position: absolute; left: 50%; top: 50%; right: 50%; bottom: 50%; width: 50px; height: 50px; align-items: auto; justify-content: center; align-self: auto;">
-            <ui:VisualElement name="CrosshairImage" style="flex-grow: 1; position: relative; left: -25px; top: -25px; right: -25px; bottom: -25px; background-image: url(&apos;project://database/Assets/Sprites/crosshair.png?fileID=2800000&amp;guid=af5a847ea265dd44cb20418176150759&amp;type=3#crosshair&apos;); width: 50px; height: 50px; align-items: auto; justify-content: center; align-self: auto;" />
-        </ui:VisualElement>
-        <ui:VisualElement name="DrunkScale" style="flex-grow: 1; left: 75%; top: 50%; bottom: 0; right: 0; width: 45%; height: 10%; position: absolute; flex-direction: column; flex-wrap: nowrap; align-self: auto; justify-content: space-around; align-items: auto; padding-top: 20px; padding-right: 20px; padding-bottom: 20px; padding-left: 20px; rotate: -90deg;">
-            <ui:ProgressBar value="55.9" name="DrunkScaleProgressBar" style="width: 100%; height: 10%; scale: 1 2; background-image: url(&apos;project://database/Assets/Sprites/health-icon.jpg?fileID=2800000&amp;guid=90fe0a023c1f631ab99d977b96f8fc6d&amp;type=3#health-icon&apos;); -unity-background-scale-mode: stretch-to-fill; background-color: rgba(178, 46, 46, 0.69); -unity-background-image-tint-color: rgba(183, 104, 1, 0.91);" />
-        </ui:VisualElement>
-        <ui:VisualElement name="BalanceBar" style="flex-grow: 1;">
-            <ui:Slider picking-mode="Ignore" value="0" high-value="100" low-value="-100" inverted="false" name="BalanceBarSlider" class="unity-base-slide_tracker" style="width: 50%; left: 25%; top: 5%; height: -8%; scale: 1 5;" />
+        <ui:VisualElement name="GameOverState" class="hidden-content" style="flex-grow: 1; background-color: rgba(118, 118, 118, 0); margin-top: 100px; margin-right: 100px; margin-bottom: 100px; margin-left: 100px;">
+            <ui:VisualElement name="Spacer" style="flex-grow: 1;" />
+            <ui:VisualElement name="Content" style="flex-grow: 0; background-color: rgba(176, 176, 176, 0.91); border-top-left-radius: 20px; border-top-right-radius: 20px; border-bottom-right-radius: 20px; border-bottom-left-radius: 20px; flex-shrink: 1;">
+                <ui:Label text="Oh no, all alcohol is gone!" name="Label" class="display-01-bold" />
+                <ui:Label text="It is time to refill you glass and get more booze. And then jump in again to show those zombies who is the boss!" name="Label" class="h1" style="white-space: normal;" />
+                <ui:VisualElement name="Buttons" style="flex-grow: 1; flex-direction: row; margin-top: 20px; margin-right: 20px; margin-bottom: 20px; margin-left: 20px;">
+                    <ui:Button text="Quit" name="QuitButton" selectable="true" tabindex="1" class="button-secondary" style="width: 200px; height: 150px;" />
+                    <ui:VisualElement name="Spacer" style="flex-grow: 1;" />
+                    <ui:Button text="Restart" name="RestartButton" focusable="true" selectable="true" class="button-primary" style="width: 200px; height: 150px;" />
+                </ui:VisualElement>
+            </ui:VisualElement>
+            <ui:VisualElement name="Spacer" style="flex-grow: 1;" />
         </ui:VisualElement>
     </ui:VisualElement>
 </ui:UXML>

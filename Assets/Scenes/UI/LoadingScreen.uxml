@@ -1,0 +1,4 @@
+<engine:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:engine="UnityEngine.UIElements" xmlns:editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/Scenes/UI/InGame.uss?fileID=7433441132597879392&amp;guid=1a74b631be3dbc24e909db6366b8efaa&amp;type=3#InGame" />
+    <engine:VisualElement name="Background" style="flex-grow: 1; background-image: url(&quot;project://database/Assets/Sprites/LoadingScreen.png?fileID=2800000&amp;guid=013376a8f4fb9384cba35d5c2981ad3a&amp;type=3#LoadingScreen&quot;);" />
+</engine:UXML>

@@ -4,7 +4,9 @@ using UnityEngine.SceneManagement;
 public enum MyScenes
 {
     InitScene,
-    MainMenu
+    MainMenu,
+    Game,
+    Reset
 }
 public class SceneLoader : MonoBehaviour
 {
