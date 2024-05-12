@@ -6,7 +6,8 @@ public enum MyScenes
     InitScene,
     MainMenu,
     Game,
-    Reset
+    Reset,
+    Credits
 }
 public class SceneLoader : MonoBehaviour
 {
