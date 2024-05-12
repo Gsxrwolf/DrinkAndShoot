@@ -6,18 +6,6 @@
                 <ui:GroupBox name="HealthGroup" style="align-items: flex-start; align-self: flex-start; flex-direction: row; width: 100%; height: 50%; margin-top: 0; margin-right: 0; margin-bottom: 0; margin-left: 0;">
                     <ui:VisualElement name="HealthImage" style="flex-grow: 1; width: 25px; height: 100%; flex-direction: row-reverse; background-image: url(&quot;project://database/Assets/Sprites/health-icon.jpg?fileID=2800000&amp;guid=90fe0a023c1f631ab99d977b96f8fc6d&amp;type=3#health-icon&quot;); align-items: auto; max-width: 25%; min-width: 35%;" />
                     <ui:Label tabindex="-1" text="0" parse-escape-sequences="true" display-tooltip-when-elided="true" name="HealthValue" style="width: 75%; font-size: 100%; margin-left: 20px; -unity-text-align: middle-left;" />
-    <ui:VisualElement style="flex-grow: 1;">
-        <ui:VisualElement name="HealthAndAmmu" style="flex-grow: 1; position: absolute; left: 0; right: auto; top: auto; bottom: 0; width: 20%; height: 25%;">
-            <ui:GroupBox name="HealthGroup" style="align-items: flex-start; align-self: flex-start; flex-direction: row; width: 100%; height: 50%; margin-top: 0; margin-right: 0; margin-bottom: 0; margin-left: 0;">
-                <ui:VisualElement name="HealthImage" style="flex-grow: 1; width: 25px; height: 100%; flex-direction: row-reverse; background-image: url(&quot;project://database/Assets/Sprites/health-icon.jpg?fileID=2800000&amp;guid=90fe0a023c1f631ab99d977b96f8fc6d&amp;type=3#health-icon&quot;); align-items: auto; max-width: 25%; min-width: 35%;" />
-                <ui:Label tabindex="-1" text="0" parse-escape-sequences="true" display-tooltip-when-elided="true" name="HealthValue" style="width: 75%; font-size: 80%; margin-left: 20px; -unity-text-align: middle-left;" />
-            </ui:GroupBox>
-            <ui:GroupBox name="AmmuGroup" style="align-items: flex-start; align-self: flex-start; flex-direction: row; width: 100%; height: 50%; margin-top: 0; margin-right: 0; margin-bottom: 0; margin-left: 0;">
-                <ui:VisualElement name="AmmuImage" style="flex-grow: 1; flex-direction: row; background-image: url(&quot;project://database/Assets/Sprites/icon-bullets.jpg?fileID=2800000&amp;guid=e1ae031f215ae97ebbf005e9f5f6e443&amp;type=3#icon-bullets&quot;); width: 25px; height: 100px; max-width: 25%; min-width: 35%;" />
-                <ui:GroupBox style="width: 75%; flex-direction: row; align-self: flex-start;">
-                    <ui:Label tabindex="-1" text="5" parse-escape-sequences="true" display-tooltip-when-elided="true" name="ClipsValue" style="width: 25%; font-size: 80%; margin-left: 0; margin-top: 0; margin-right: 0; margin-bottom: 0; padding-top: 0; padding-right: 0; padding-bottom: 0; -unity-text-align: middle-left;" />
-                    <ui:Label tabindex="-1" text="/" parse-escape-sequences="true" display-tooltip-when-elided="true" name="Trenner" style="width: 5%; font-size: 80%; margin-left: 3px; padding-right: 0; padding-bottom: 0; margin-right: 24px; padding-left: 0; margin-top: 0; margin-bottom: 0; padding-top: 0; -unity-text-align: middle-left;" />
-                    <ui:Label tabindex="-1" text="55" parse-escape-sequences="true" display-tooltip-when-elided="true" name="AmmuValue" enable-rich-text="true" emoji-fallback-support="true" style="width: 20%; font-size: 80%; margin-left: 0; margin-top: 0; margin-right: 0; margin-bottom: 0; padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0; -unity-text-align: middle-left;" />
                 </ui:GroupBox>
                 <ui:GroupBox name="AmmuGroup" style="align-items: flex-start; align-self: flex-start; flex-direction: row; width: 100%; height: 50%; margin-top: 0; margin-right: 0; margin-bottom: 0; margin-left: 0;">
                     <ui:VisualElement name="AmmuImage" style="flex-grow: 1; flex-direction: row; background-image: url(&quot;project://database/Assets/Sprites/icon-bullets.jpg?fileID=2800000&amp;guid=e1ae031f215ae97ebbf005e9f5f6e443&amp;type=3#icon-bullets&quot;); width: 25%; height: 113px; max-width: 25%; min-width: 35%; margin-top: -20px; margin-right: 0; margin-bottom: 0; margin-left: 0;" />
@@ -50,14 +38,6 @@
                 </ui:VisualElement>
             </ui:VisualElement>
             <ui:VisualElement name="Spacer" style="flex-grow: 1;" />
-        <ui:VisualElement name="Crosshair" style="flex-grow: 1; position: absolute; left: 50%; top: 50%; right: 50%; bottom: 50%; width: 50px; height: 50px; align-items: auto; justify-content: center; align-self: auto;">
-            <ui:VisualElement name="CrosshairImage" style="flex-grow: 1; position: relative; left: -25px; top: -25px; right: -25px; bottom: -25px; background-image: url(&quot;project://database/Assets/Sprites/crosshair.png?fileID=2800000&amp;guid=af5a847ea265dd44cb20418176150759&amp;type=3#crosshair&quot;); width: 50px; height: 50px; align-items: auto; justify-content: center; align-self: auto; display: none;" />
-        </ui:VisualElement>
-        <ui:VisualElement name="DrunkScale" style="flex-grow: 1; left: 73%; top: 50%; bottom: 0; right: 0; width: 45%; height: 10%; position: absolute; flex-direction: column; flex-wrap: nowrap; align-self: auto; justify-content: space-around; align-items: auto; padding-top: 20px; padding-right: 20px; padding-bottom: 20px; padding-left: 20px; rotate: -90deg;">
-            <ui:ProgressBar value="55.9" name="DrunkScaleProgressBar" style="width: 100%; height: 10%; scale: 1 2; background-image: url(&quot;project://database/Assets/Sprites/health-icon.jpg?fileID=2800000&amp;guid=90fe0a023c1f631ab99d977b96f8fc6d&amp;type=3#health-icon&quot;); -unity-background-scale-mode: stretch-to-fill; background-color: rgba(178, 46, 46, 0.69); -unity-background-image-tint-color: rgba(183, 104, 1, 0.91);" />
-        </ui:VisualElement>
-        <ui:VisualElement name="BalanceBar" style="flex-grow: 1;">
-            <ui:Slider picking-mode="Ignore" value="0" high-value="100" low-value="-100" inverted="false" name="BalanceBarSlider" class="unity-base-slide_tracker" style="width: 50%; left: 25%; top: 5%; height: -8%; scale: 1 5;" />
         </ui:VisualElement>
     </ui:VisualElement>
 </ui:UXML>
