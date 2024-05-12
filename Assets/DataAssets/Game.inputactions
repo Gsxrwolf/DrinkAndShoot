@@ -653,7 +653,7 @@
                     "path": "*/{Submit}",
                     "interactions": "",
                     "processors": "",
-                    "groups": "Keyboard&Mouse;Gamepad;Touch;Joystick;XR",
+                    "groups": "Gamepad;Touch;Joystick;XR;Keyboard&Mouse",
                     "action": "Submit",
                     "isComposite": false,
                     "isPartOfComposite": false

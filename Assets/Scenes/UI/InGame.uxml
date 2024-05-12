@@ -28,9 +28,9 @@
                 <ui:Label text="Oh no, all alcohol is gone!" name="Label" class="display-01-bold" />
                 <ui:Label text="It is time to refill you glass and get more booze. And then jump in again to show those zombies who is the boss!" name="Label" class="h1" style="white-space: normal;" />
                 <ui:VisualElement name="Buttons" style="flex-grow: 1; flex-direction: row; margin-top: 20px; margin-right: 20px; margin-bottom: 20px; margin-left: 20px;">
-                    <ui:Button text="Quit" name="QuitButton" selectable="true" tabindex="1" class="button-secondary" style="width: 200px; height: 150px;" />
+                    <ui:Button text="Quit" name="QuitButton" tabindex="1" class="button-secondary" style="width: 200px; height: 150px;" />
                     <ui:VisualElement name="Spacer" style="flex-grow: 1;" />
-                    <ui:Button text="Restart" name="RestartButton" focusable="true" selectable="true" class="button-primary" style="width: 200px; height: 150px;" />
+                    <ui:Button text="Restart" name="RestartButton" class="button-primary" style="width: 200px; height: 150px;" />
                 </ui:VisualElement>
             </ui:VisualElement>
             <ui:VisualElement name="Spacer" style="flex-grow: 1;" />

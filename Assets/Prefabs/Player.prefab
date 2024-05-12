@@ -133,7 +133,7 @@ MonoBehaviour:
   - m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 2185076298134348}
-        m_TargetAssemblyTypeName: PlayerMovement, Assembly-CSharp
+        m_TargetAssemblyTypeName: Player.PlayerMovement, Assembly-CSharp
         m_MethodName: OnMove
         m_Mode: 0
         m_Arguments:
@@ -149,7 +149,7 @@ MonoBehaviour:
   - m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 2185076298134348}
-        m_TargetAssemblyTypeName: PlayerMovement, Assembly-CSharp
+        m_TargetAssemblyTypeName: Player.PlayerMovement, Assembly-CSharp
         m_MethodName: OnRotate
         m_Mode: 0
         m_Arguments:
@@ -179,11 +179,39 @@ MonoBehaviour:
     m_ActionId: 54b7f2c4-bc9e-4859-a43a-c67be64b25e8
     m_ActionName: 'Player/Fire[/Mouse/leftButton]'
   - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 518616516086567493}
+        m_TargetAssemblyTypeName: Player.PlayerActions, Assembly-CSharp
+        m_MethodName: OnReload
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 2e23d72e-849b-40fb-a5ae-1258ceb929ce
+    m_ActionName: 'Player/Reload[/Keyboard/r]'
+  - m_PersistentCalls:
       m_Calls: []
     m_ActionId: 4bdde41f-d7b9-46fc-8962-556da19f1956
     m_ActionName: 'UI/Navigate[/Keyboard/w,/Keyboard/upArrow,/Keyboard/s,/Keyboard/downArrow,/Keyboard/a,/Keyboard/leftArrow,/Keyboard/d,/Keyboard/rightArrow]'
   - m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: UI_InGameInteraction, Assembly-CSharp
+        m_MethodName: OnSubmit
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_ActionId: c994f212-76b2-48e3-8544-e5fa4ac72e7c
     m_ActionName: 'UI/Submit[/Keyboard/enter]'
   - m_PersistentCalls:
@@ -218,22 +246,6 @@ MonoBehaviour:
       m_Calls: []
     m_ActionId: a25856db-a436-4a68-bcf2-1fa8be87ded3
     m_ActionName: UI/TrackedDeviceOrientation
-  - m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 518616516086567493}
-        m_TargetAssemblyTypeName: Player.PlayerActions, Assembly-CSharp
-        m_MethodName: OnReload
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-    m_ActionId: 2e23d72e-849b-40fb-a5ae-1258ceb929ce
-    m_ActionName: 'Player/Reload[/Keyboard/r]'
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
@@ -263,6 +275,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e4b1596c6b337814989b0ae29b3b3a19, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_playerHealth: {fileID: 11400000, guid: f90541b2b5ddeca409ef4fef63e8e2be, type: 2}
 --- !u!114 &1685964435993530536
 MonoBehaviour:
   m_ObjectHideFlags: 0

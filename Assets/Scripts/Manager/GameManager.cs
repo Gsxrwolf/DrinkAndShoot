@@ -20,6 +20,7 @@ public class GameManager : MonoBehaviour
 
     public SaveFile saveFile;
 
+#if UNITY_EDITOR
     private void Start()
     {
         Load();
@@ -53,4 +54,5 @@ public class GameManager : MonoBehaviour
             JsonUtility.FromJsonOverwrite(data, saveFile);
         }
     }
+#endif
 }

@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 using UnityEngine.UIElements;
 using Random = UnityEngine.Random;
@@ -138,8 +139,11 @@ public class UI_InGameInteraction : MonoBehaviour
 
         if (this.PlayerHealth.GetValue() <= 0)
         {
+            this.PlayerHealth.FOnValueSet -= SetPlayerHealth;
+
             InGameContainer.AddToClassList(HIDDEN_CONTENT_CLASS);
             GameOverContainer.RemoveFromClassList(HIDDEN_CONTENT_CLASS);
+            RestartButton.Focus();
         }
     }
 
@@ -150,15 +154,27 @@ public class UI_InGameInteraction : MonoBehaviour
 
     private void QuitToMainMenu(ClickEvent _event)
     {
-        _event.StopPropagation();
-
         SceneLoader.Instance.LoadScene(MyScenes.MainMenu);
     }
 
     private void RestartLevel(ClickEvent _event)
     {
-        _event.StopPropagation();
-
         SceneLoader.Instance.LoadScene(MyScenes.Reset);
+    }
+
+    public void OnSubmit(InputAction.CallbackContext _context)
+    {
+        // Workaround because buttons are not reacting to submit event
+        if (_context.started)
+        {
+            if (RootVisualElement.focusController.focusedElement == QuitButton)
+            {
+                QuitToMainMenu(null);
+            }
+            else if (RootVisualElement.focusController.focusedElement == RestartButton)
+            {
+                RestartLevel(null);
+            }
+        }
     }
 }

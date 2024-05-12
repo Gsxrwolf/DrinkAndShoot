@@ -64,10 +64,30 @@
     color: white;
 }
 
+.button-primary:hover {
+    border-width: 10px;
+    border-color: white;
+}
+
+.button-primary:focus {
+    border-width: 10px;
+    border-color: white;
+}
+
 .button-secondary {
     font-size: 48px;
     -unity-paragraph-spacing: 56px;
     border-radius: 20px;
     background-color: lightsteelblue;
     color: white;
+}
+
+.button-secondary:hover {
+    border-width: 7px;
+    border-color: white;
+}
+
+.button-secondary:focus {
+    border-width: 7px;
+    border-color: white;
 }
