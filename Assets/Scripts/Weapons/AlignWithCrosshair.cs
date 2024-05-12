@@ -16,19 +16,23 @@ namespace Weapons
         private UI_InGameInteraction m_uiController = null;
         private bool m_isMovementFinished = true;
         private Vector3 m_startCrosshairPosition = Vector3.zero;
+        private Vector3 m_initialCrosshairPosition = Vector3.zero;
         private Vector3 m_offsetCrosshairPosition = Vector3.zero;
 
         private void Awake()
         {
             m_uiController = FindAnyObjectByType<UI_InGameInteraction>();
             m_startCrosshairPosition = m_crosshair.position;
+            m_initialCrosshairPosition = m_crosshair.position;
 
         }
 
         private void Update()
         {
-            if (m_isMovementFinished) 
+            if (m_isMovementFinished)
+            {
                 CalculateCrosshairMovement();
+            }
 
             MoveCrosshair();
             Ray ray = Camera.main.ScreenPointToRay(m_crosshair.position);
@@ -42,6 +46,11 @@ namespace Weapons
         private void CalculateCrosshairMovement()
         {
             m_isMovementFinished = false;
+            if (m_uiController.DrunkProgressBarValue.value > 90)
+            {
+                m_offsetCrosshairPosition = m_initialCrosshairPosition - m_startCrosshairPosition;
+                return;
+            }
 
             float range = (m_uiController.DrunkProgressBarValue.value - 100) * 10;
 
@@ -51,9 +60,6 @@ namespace Weapons
             m_offsetCrosshairPosition = new Vector3(randomX, randomY, 0);
         }
 
-        /// <summary>
-        /// Move the Crosshair randomly around the center in relation to the Drunk Scale value
-        /// </summary>
         private void MoveCrosshair()
         {
             Vector3 newCrosshairPosition = Vector3.Lerp(m_startCrosshairPosition, m_startCrosshairPosition + m_offsetCrosshairPosition, Time.deltaTime);
@@ -65,6 +71,16 @@ namespace Weapons
             }
 
             m_crosshair.position = newCrosshairPosition;
+        }
+
+        private void OnDrawGizmos()
+        {
+            if (m_crosshair == null)
+                return;
+
+            Gizmos.color = Color.magenta;
+            Ray ray = Camera.main.ScreenPointToRay(m_crosshair.position);
+            Gizmos.DrawRay(ray);
         }
     }
 }

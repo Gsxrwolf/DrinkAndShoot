@@ -85,7 +85,7 @@ namespace Player
             m_currentWeapon.FullRestore();
             m_currentWeapon.transform.SetParent(m_rightWeaponSocket);
 
-            m_currentWeapon.transform.localPosition = Vector3.zero;
+            m_currentWeapon.transform.localPosition = new Vector3(0.0f, -0.4f, 0.0f);
             m_currentWeapon.transform.localRotation = Quaternion.identity;
 
             m_currentWeapon.gameObject.SetActive(true);
