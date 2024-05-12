@@ -6,7 +6,7 @@ public class VodkaItem : AlcoholItem
 
     private void Start()
     {
-        this.AlcoholContent = 15.0f;
+        this.AlcoholContent = 30.0f;
     }
 
     public new void Collect(GameObject collector)

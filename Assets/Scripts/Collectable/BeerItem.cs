@@ -4,7 +4,7 @@ public class BeerItem : AlcoholItem
 {
     private void Start()
     {
-        this.AlcoholContent = 5.0f;
+        this.AlcoholContent = 10.0f;
     }
     
     public new void Collect(GameObject collector)
