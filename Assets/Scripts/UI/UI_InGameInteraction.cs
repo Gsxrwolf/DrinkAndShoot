@@ -1,3 +1,4 @@
+using Player;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -5,6 +6,7 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 using UnityEngine.UIElements;
+using Weapons;
 using Random = UnityEngine.Random;
 
 public class UI_InGameInteraction : MonoBehaviour
@@ -21,7 +23,13 @@ public class UI_InGameInteraction : MonoBehaviour
     [SerializeField] private FloatValue PlayerHealth;
 
     private Label AmmunitionUI;
-    [SerializeField] private FloatValue Ammunition;
+    [SerializeField] private int AmmunationAmount;
+
+    private Label ClipsUI;
+    [SerializeField] private int ClipsAmount;
+    
+
+    private ProjectileWeapon CurrentWeapon;
 
     private VisualElement InGameContainer;
     private VisualElement GameOverContainer;
@@ -50,6 +58,8 @@ public class UI_InGameInteraction : MonoBehaviour
         this.DrunkProgressBar = this.RootVisualElement.Q<ProgressBar>("DrunkScaleProgressBar");
         this.Crosshair = this.RootVisualElement.Q<VisualElement>("CrosshairImage");
         this.PlayerHealthUI = this.RootVisualElement.Q<Label>("HealthValue");
+        this.AmmunitionUI = this.RootVisualElement.Q<Label>("AmmuValue");
+        this.ClipsUI = this.RootVisualElement.Q<Label>("ClipsValue");
 
         this.InGameContainer = this.RootVisualElement.Q("InGameState");
         this.GameOverContainer = this.RootVisualElement.Q("GameOverState");
@@ -75,6 +85,10 @@ public class UI_InGameInteraction : MonoBehaviour
     {
         this.QuitButton?.UnregisterCallback<ClickEvent>(QuitToMainMenu);
         this.RestartButton?.UnregisterCallback<ClickEvent>(RestartLevel);
+        GameObject player = GameObject.Find("Player");
+
+        player.GetComponent<PlayerActions>().OnWeaponChanged += WeaponChange;
+
     }
 
     private void Update()
@@ -147,9 +161,72 @@ public class UI_InGameInteraction : MonoBehaviour
         }
     }
 
-    private void SetAmmunition()
+    private void WeaponChange(ABaseWeapon oldWeapon, ABaseWeapon newWeapon)
     {
+        // Remove old Weapon
+        if (CurrentWeapon != null)
+        {
+            ((ProjectileWeapon)oldWeapon).OnSecondaryActionFinished -= ReloadFinished;
+            ((ProjectileWeapon)oldWeapon).OnCurrentAmmoChanged -= AmmoChanged;
+            ((ProjectileWeapon)oldWeapon).OnCurrentClipSizeChanged -= ClipSizeChanged;
+        }
 
+        // Add new Weapon
+        ((ProjectileWeapon)newWeapon).OnSecondaryActionFinished += ReloadFinished;
+        ((ProjectileWeapon)newWeapon).OnCurrentAmmoChanged += AmmoChanged;
+        ((ProjectileWeapon)newWeapon).OnCurrentClipSizeChanged += ClipSizeChanged;
+
+        this.CurrentWeapon = (ProjectileWeapon)newWeapon;
+
+        this.AmmunitionUI.text = Convert.ToString(this.CurrentWeapon.CurrentAmmo);
+        this.ClipsUI.text = Convert.ToString(this.CurrentWeapon.CurrentClipSize);
+    }
+
+    private void ReloadFinished(ABaseWeapon aBaseWeapon)
+    {
+        this.ClipsAmount = this.CurrentWeapon.CurrentAmmo;
+        this.AmmunationAmount = this.CurrentWeapon.CurrentClipSize;
+
+        this.AmmunitionUI.text = Convert.ToString(this.ClipsAmount);
+        this.ClipsUI.text = Convert.ToString(this.AmmunationAmount);
+    }
+
+    private void AmmoChanged(ProjectileWeapon weapon, int remainingBullets)
+    {
+        this.ClipsAmount = remainingBullets;
+        this.AmmunitionUI.text = Convert.ToString(this.ClipsAmount);
+    }
+
+    private void ClipSizeChanged(ProjectileWeapon weapon, int remainingClips)
+    {
+        this.AmmunationAmount = remainingClips;
+        this.ClipsUI.text = Convert.ToString(this.AmmunationAmount);
+    }
+
+    private void QuitToMainMenu(ClickEvent _event)
+    {
+        SceneLoader.Instance.LoadScene(MyScenes.MainMenu);
+    }
+
+    private void RestartLevel(ClickEvent _event)
+    {
+        SceneLoader.Instance.LoadScene(MyScenes.Reset);
+    }
+
+    public void OnSubmit(InputAction.CallbackContext _context)
+    {
+        // Workaround because buttons are not reacting to submit event
+        if (_context.started)
+        {
+            if (RootVisualElement.focusController.focusedElement == QuitButton)
+            {
+                QuitToMainMenu(null);
+            }
+            else if (RootVisualElement.focusController.focusedElement == RestartButton)
+            {
+                RestartLevel(null);
+            }
+        }
     }
 
     private void QuitToMainMenu(ClickEvent _event)
