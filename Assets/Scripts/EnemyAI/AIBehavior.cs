@@ -1,3 +1,4 @@
+using Player;
 using System;
 using UnityEngine;
 using UnityEngine.AI;
@@ -5,9 +6,11 @@ using UnityEngine.InputSystem.Processors;
 
 public class AIBehavior : MonoBehaviour
 {
-    [SerializeField] GameObject player;
+    public GameObject player;
+    public EnemyPoolSpawner spawner;
     Animator animator;
     NavMeshAgent agent;
+
 
     [SerializeField] float attackRange;
     [SerializeField] float sprintRange;
@@ -21,6 +24,7 @@ public class AIBehavior : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        player = FindAnyObjectByType<PlayerMovement>().gameObject;
         animator = GetComponent<Animator>();
         agent = GetComponent<NavMeshAgent>();
     }
@@ -32,16 +36,17 @@ public class AIBehavior : MonoBehaviour
             return;
         }
         distance = (player.transform.position - transform.position).magnitude;
-        agent.SetDestination(player.transform.position);
 
         if (distance < sprintRange)
         {
             agent.isStopped = false;
+            agent.SetDestination(player.transform.position);
             animator.SetBool("Sprint", false);
         }
         else if (distance > sprintRange)
         {
             agent.isStopped = false;
+            agent.SetDestination(player.transform.position);
             animator.SetBool("Sprint", true);
 
         }
@@ -76,5 +81,10 @@ public class AIBehavior : MonoBehaviour
             agent.isStopped = true;
             animator.SetTrigger("Dead");
         }
+    }
+
+    public void DespawnEnemy()
+    {
+        spawner.DespawnEnemy(this.gameObject);
     }
 }
