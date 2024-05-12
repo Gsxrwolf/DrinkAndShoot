@@ -51,7 +51,12 @@ public class EnemyPoolSpawner : MonoBehaviour
             InstantiateNewEnemies(enemyRefillAmount);
         }
         newEnemy = cacheEnemyList.First();
-        newEnemy.transform.position = GetNewSpawnPosition();
+        Vector3 spawnPosition = GetNewSpawnPosition();
+        if(spawnPosition == Vector3.zero)
+        {
+            return;
+        }
+        newEnemy.transform.position = spawnPosition;
         cacheEnemyList.Remove(newEnemy);
         newEnemy.SetActive(true);
         activeEnemyList.Add(newEnemy);
@@ -75,9 +80,9 @@ public class EnemyPoolSpawner : MonoBehaviour
         _enemy.transform.position = cachePosition;
         _enemy.SetActive(false);
         cacheEnemyList.Add(_enemy);
-
-
     }
+
+    int errorConter = 0;
     private Vector3 GetNewSpawnPosition()
     {
         Vector3 spawnPosition;
@@ -98,7 +103,13 @@ public class EnemyPoolSpawner : MonoBehaviour
                 return spawnPosition;
             }
         }
+        if (errorConter > 10)
+        {
+            return Vector3.zero;
+            errorConter = 0;
+        }
 
+        errorConter++;
         return GetNewSpawnPosition();
     }
 }
