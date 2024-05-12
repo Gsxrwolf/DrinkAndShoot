@@ -11,6 +11,9 @@ using Random = UnityEngine.Random;
 
 public class UI_InGameInteraction : MonoBehaviour
 {
+    public ProgressBar DrunkProgressBarValue => this.DrunkProgressBar;
+    public Vector3 InitialCrosshairPosition {  get; private set; } = Vector3.zero;
+
     private VisualElement RootVisualElement;
 
     private ProgressBar DrunkProgressBar;
@@ -73,6 +76,8 @@ public class UI_InGameInteraction : MonoBehaviour
         this.DrunkBalanceValue.FOnValueSet += SetDrunkBalance;
 
         this.PlayerHealth.FOnValueSet += SetPlayerHealth;
+
+        InitialCrosshairPosition = this.Crosshair.transform.position;
     }
 
     private void OnEnable()
